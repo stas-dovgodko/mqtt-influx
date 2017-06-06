@@ -59,6 +59,7 @@
           <root url="phar://$MODULE_DIR$/vendor/herrera-io/box/res/empty.phar/" />
           <root url="phar://$MODULE_DIR$/vendor/herrera-io/box/res/sha1.phar/" />
           <root url="phar://$MODULE_DIR$/daemon.phar/" />
+          <root url="phar://$MODULE_DIR$/composer.phar/" />
         </CLASSES>
         <SOURCES>
           <root url="phar://$MODULE_DIR$/vendor/herrera-io/box/res/invalid.phar/" />
@@ -72,6 +73,7 @@
           <root url="phar://$MODULE_DIR$/vendor/herrera-io/box/res/empty.phar/" />
           <root url="phar://$MODULE_DIR$/vendor/herrera-io/box/res/sha1.phar/" />
           <root url="phar://$MODULE_DIR$/daemon.phar/" />
+          <root url="phar://$MODULE_DIR$/composer.phar/" />
         </SOURCES>
       </library>
     </orderEntry>
