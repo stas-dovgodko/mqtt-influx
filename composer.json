@@ -1,0 +1,22 @@
+{
+  "name": "stas-dovgoddko/mqtt-influx",
+  "minimum-stability": "dev",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "Stas Dovgodko",
+      "email": "standov@gmail.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "MI\\": "src/"
+    }
+  },
+  "require": {
+    "oliverlorenz/php-mqtt-client": "0.3.x-dev",
+    "influxdb/influxdb-php": "1.14.4",
+    "hassankhan/config": "0.10.0",
+    "symfony/yaml": "2.5.x-dev"
+  }
+}

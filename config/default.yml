@@ -1,0 +1,26 @@
+mqtt:
+  nameserver: 8.8.8.8
+  broker:
+    host: mqtt
+    port: 1883
+    user:
+    password:
+    client-id:
+    clean-session: true
+
+influxdb:
+  database: test_db
+  server:
+    host: influxdb
+    port: 8086
+
+subscribe:
+   - topic: "#"
+     qos: 0
+
+topics:
+   - pattern: "/(.*)/"
+     measurement: "$1"
+     tags: {}
+     type: int
+

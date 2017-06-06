@@ -1,0 +1,25 @@
+version: '2'
+services:
+  app:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    depends_on: [influxdb]
+    tty: true
+    volumes:
+      - ./:/var/www
+
+  influxdb:
+    image: influxdb:latest
+    ports:
+      - "8083:8083"
+      - "8086:8086"
+      - "8090:8090"
+
+  grafana:
+    image: grafana/grafana:latest
+    ports:
+      - "3000:3000"
+    depends_on: [influxdb]
+
+
