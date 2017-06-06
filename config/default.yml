@@ -17,10 +17,6 @@ influxdb:
 subscribe:
    - topic: "#"
      qos: 0
-
-topics:
-   - pattern: "/(.*)/"
-     measurement: "$1"
-     tags: {}
-     type: int
+     topics:
+       - {pattern: "/(.*)/", measurement: "$1", tags: {}, type: int}
 

@@ -1,0 +1,6 @@
+mqtt:
+  broker:
+    host: m12.cloudmqtt.com
+    port: 14775
+    user: leiqpkje
+    password: iOmY__uv3a3Y
