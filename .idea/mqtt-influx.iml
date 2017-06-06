@@ -3,14 +3,28 @@
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$">
       <excludeFolder url="file://$MODULE_DIR$/vendor/composer" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/doctrine/annotations" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/doctrine/lexer" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/evenement/evenement" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/guzzlehttp/guzzle" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/guzzlehttp/promises" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/guzzlehttp/psr7" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/hassankhan/config" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/herrera-io/annotations" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/herrera-io/box" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/herrera-io/json" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/herrera-io/phar-update" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/herrera-io/version" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/influxdb/influxdb-php" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/justinrainbow/json-schema" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/kherge/amend" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/kherge/box" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/oliverlorenz/php-mqtt-client" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/phine/exception" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/phine/path" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/phpseclib/phpseclib" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/psr/http-message" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/psr/log" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/react/cache" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/react/dns" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/react/event-loop" />
@@ -19,8 +33,15 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/react/socket" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/react/socket-client" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/react/stream" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/seld/jsonlint" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/console" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/debug" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/event-dispatcher" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/finder" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/polyfill-mbstring" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/process" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/yaml" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/tedivm/jshrink" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
@@ -28,9 +49,31 @@
       <library name="PHARS">
         <CLASSES>
           <root url="phar://$MODULE_DIR$/composer.phar/" />
+          <root url="phar://$MODULE_DIR$/vendor/herrera-io/box/res/invalid.phar/" />
+          <root url="phar://$MODULE_DIR$/vendor/herrera-io/box/res/sha256.phar/" />
+          <root url="phar://$MODULE_DIR$/vendor/herrera-io/box/res/openssl.phar/" />
+          <root url="phar://$MODULE_DIR$/vendor/herrera-io/box/res/mixed.phar/" />
+          <root url="phar://$MODULE_DIR$/vendor/herrera-io/box/res/example.phar/" />
+          <root url="phar://$MODULE_DIR$/vendor/herrera-io/box/res/md5.phar/" />
+          <root url="phar://$MODULE_DIR$/vendor/herrera-io/box/res/missing.phar/" />
+          <root url="phar://$MODULE_DIR$/vendor/herrera-io/box/res/sha512.phar/" />
+          <root url="phar://$MODULE_DIR$/vendor/herrera-io/box/res/empty.phar/" />
+          <root url="phar://$MODULE_DIR$/vendor/herrera-io/box/res/sha1.phar/" />
+          <root url="phar://$MODULE_DIR$/daemon.phar/" />
         </CLASSES>
         <SOURCES>
           <root url="phar://$MODULE_DIR$/composer.phar/" />
+          <root url="phar://$MODULE_DIR$/vendor/herrera-io/box/res/invalid.phar/" />
+          <root url="phar://$MODULE_DIR$/vendor/herrera-io/box/res/sha256.phar/" />
+          <root url="phar://$MODULE_DIR$/vendor/herrera-io/box/res/openssl.phar/" />
+          <root url="phar://$MODULE_DIR$/vendor/herrera-io/box/res/mixed.phar/" />
+          <root url="phar://$MODULE_DIR$/vendor/herrera-io/box/res/example.phar/" />
+          <root url="phar://$MODULE_DIR$/vendor/herrera-io/box/res/md5.phar/" />
+          <root url="phar://$MODULE_DIR$/vendor/herrera-io/box/res/missing.phar/" />
+          <root url="phar://$MODULE_DIR$/vendor/herrera-io/box/res/sha512.phar/" />
+          <root url="phar://$MODULE_DIR$/vendor/herrera-io/box/res/empty.phar/" />
+          <root url="phar://$MODULE_DIR$/vendor/herrera-io/box/res/sha1.phar/" />
+          <root url="phar://$MODULE_DIR$/daemon.phar/" />
         </SOURCES>
       </library>
     </orderEntry>
@@ -38,14 +81,28 @@
       <library name="PHP" type="php">
         <CLASSES>
           <root url="file://$MODULE_DIR$/vendor/composer" />
+          <root url="file://$MODULE_DIR$/vendor/doctrine/annotations" />
+          <root url="file://$MODULE_DIR$/vendor/doctrine/lexer" />
           <root url="file://$MODULE_DIR$/vendor/evenement/evenement" />
           <root url="file://$MODULE_DIR$/vendor/guzzlehttp/guzzle" />
           <root url="file://$MODULE_DIR$/vendor/guzzlehttp/promises" />
           <root url="file://$MODULE_DIR$/vendor/guzzlehttp/psr7" />
           <root url="file://$MODULE_DIR$/vendor/hassankhan/config" />
+          <root url="file://$MODULE_DIR$/vendor/herrera-io/annotations" />
+          <root url="file://$MODULE_DIR$/vendor/herrera-io/box" />
+          <root url="file://$MODULE_DIR$/vendor/herrera-io/json" />
+          <root url="file://$MODULE_DIR$/vendor/herrera-io/phar-update" />
+          <root url="file://$MODULE_DIR$/vendor/herrera-io/version" />
           <root url="file://$MODULE_DIR$/vendor/influxdb/influxdb-php" />
+          <root url="file://$MODULE_DIR$/vendor/justinrainbow/json-schema" />
+          <root url="file://$MODULE_DIR$/vendor/kherge/amend" />
+          <root url="file://$MODULE_DIR$/vendor/kherge/box" />
           <root url="file://$MODULE_DIR$/vendor/oliverlorenz/php-mqtt-client" />
+          <root url="file://$MODULE_DIR$/vendor/phine/exception" />
+          <root url="file://$MODULE_DIR$/vendor/phine/path" />
+          <root url="file://$MODULE_DIR$/vendor/phpseclib/phpseclib" />
           <root url="file://$MODULE_DIR$/vendor/psr/http-message" />
+          <root url="file://$MODULE_DIR$/vendor/psr/log" />
           <root url="file://$MODULE_DIR$/vendor/react/cache" />
           <root url="file://$MODULE_DIR$/vendor/react/dns" />
           <root url="file://$MODULE_DIR$/vendor/react/event-loop" />
@@ -54,19 +111,40 @@
           <root url="file://$MODULE_DIR$/vendor/react/socket" />
           <root url="file://$MODULE_DIR$/vendor/react/socket-client" />
           <root url="file://$MODULE_DIR$/vendor/react/stream" />
+          <root url="file://$MODULE_DIR$/vendor/seld/jsonlint" />
+          <root url="file://$MODULE_DIR$/vendor/symfony/console" />
+          <root url="file://$MODULE_DIR$/vendor/symfony/debug" />
           <root url="file://$MODULE_DIR$/vendor/symfony/event-dispatcher" />
+          <root url="file://$MODULE_DIR$/vendor/symfony/finder" />
+          <root url="file://$MODULE_DIR$/vendor/symfony/polyfill-mbstring" />
+          <root url="file://$MODULE_DIR$/vendor/symfony/process" />
           <root url="file://$MODULE_DIR$/vendor/symfony/yaml" />
+          <root url="file://$MODULE_DIR$/vendor/tedivm/jshrink" />
         </CLASSES>
         <SOURCES>
           <root url="file://$MODULE_DIR$/vendor/composer" />
+          <root url="file://$MODULE_DIR$/vendor/doctrine/annotations" />
+          <root url="file://$MODULE_DIR$/vendor/doctrine/lexer" />
           <root url="file://$MODULE_DIR$/vendor/evenement/evenement" />
           <root url="file://$MODULE_DIR$/vendor/guzzlehttp/guzzle" />
           <root url="file://$MODULE_DIR$/vendor/guzzlehttp/promises" />
           <root url="file://$MODULE_DIR$/vendor/guzzlehttp/psr7" />
           <root url="file://$MODULE_DIR$/vendor/hassankhan/config" />
+          <root url="file://$MODULE_DIR$/vendor/herrera-io/annotations" />
+          <root url="file://$MODULE_DIR$/vendor/herrera-io/box" />
+          <root url="file://$MODULE_DIR$/vendor/herrera-io/json" />
+          <root url="file://$MODULE_DIR$/vendor/herrera-io/phar-update" />
+          <root url="file://$MODULE_DIR$/vendor/herrera-io/version" />
           <root url="file://$MODULE_DIR$/vendor/influxdb/influxdb-php" />
+          <root url="file://$MODULE_DIR$/vendor/justinrainbow/json-schema" />
+          <root url="file://$MODULE_DIR$/vendor/kherge/amend" />
+          <root url="file://$MODULE_DIR$/vendor/kherge/box" />
           <root url="file://$MODULE_DIR$/vendor/oliverlorenz/php-mqtt-client" />
+          <root url="file://$MODULE_DIR$/vendor/phine/exception" />
+          <root url="file://$MODULE_DIR$/vendor/phine/path" />
+          <root url="file://$MODULE_DIR$/vendor/phpseclib/phpseclib" />
           <root url="file://$MODULE_DIR$/vendor/psr/http-message" />
+          <root url="file://$MODULE_DIR$/vendor/psr/log" />
           <root url="file://$MODULE_DIR$/vendor/react/cache" />
           <root url="file://$MODULE_DIR$/vendor/react/dns" />
           <root url="file://$MODULE_DIR$/vendor/react/event-loop" />
@@ -75,8 +153,15 @@
           <root url="file://$MODULE_DIR$/vendor/react/socket" />
           <root url="file://$MODULE_DIR$/vendor/react/socket-client" />
           <root url="file://$MODULE_DIR$/vendor/react/stream" />
+          <root url="file://$MODULE_DIR$/vendor/seld/jsonlint" />
+          <root url="file://$MODULE_DIR$/vendor/symfony/console" />
+          <root url="file://$MODULE_DIR$/vendor/symfony/debug" />
           <root url="file://$MODULE_DIR$/vendor/symfony/event-dispatcher" />
+          <root url="file://$MODULE_DIR$/vendor/symfony/finder" />
+          <root url="file://$MODULE_DIR$/vendor/symfony/polyfill-mbstring" />
+          <root url="file://$MODULE_DIR$/vendor/symfony/process" />
           <root url="file://$MODULE_DIR$/vendor/symfony/yaml" />
+          <root url="file://$MODULE_DIR$/vendor/tedivm/jshrink" />
         </SOURCES>
       </library>
     </orderEntry>

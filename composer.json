@@ -18,5 +18,8 @@
     "oliverlorenz/php-mqtt-client": "master",
     "hassankhan/config": "0.10.0",
     "symfony/yaml": "2.5.x-dev"
+  },
+  "require-dev": {
+    "kherge/box": "~2.5"
   }
 }

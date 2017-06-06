@@ -47,6 +47,7 @@ RUN echo extension=memcached.so >> /usr/local/etc/php/conf.d/memcached.ini
 
 RUN touch /usr/local/etc/php/conf.d/999-custom.ini
 RUN echo date.timezone="Europe/Kiev" >> /usr/local/etc/php/conf.d/999-custom.ini
+RUN echo phar.readonly=0 >> /usr/local/etc/php/conf.d/999-custom.ini
 
 WORKDIR /var/www
 
