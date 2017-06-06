@@ -48,7 +48,6 @@
     <orderEntry type="module-library">
       <library name="PHARS">
         <CLASSES>
-          <root url="phar://$MODULE_DIR$/composer.phar/" />
           <root url="phar://$MODULE_DIR$/vendor/herrera-io/box/res/invalid.phar/" />
           <root url="phar://$MODULE_DIR$/vendor/herrera-io/box/res/sha256.phar/" />
           <root url="phar://$MODULE_DIR$/vendor/herrera-io/box/res/openssl.phar/" />
@@ -62,7 +61,6 @@
           <root url="phar://$MODULE_DIR$/daemon.phar/" />
         </CLASSES>
         <SOURCES>
-          <root url="phar://$MODULE_DIR$/composer.phar/" />
           <root url="phar://$MODULE_DIR$/vendor/herrera-io/box/res/invalid.phar/" />
           <root url="phar://$MODULE_DIR$/vendor/herrera-io/box/res/sha256.phar/" />
           <root url="phar://$MODULE_DIR$/vendor/herrera-io/box/res/openssl.phar/" />
