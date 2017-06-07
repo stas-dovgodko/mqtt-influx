@@ -33,71 +33,93 @@ if (!$influx_database->exists()) {
     $influx_database->create(new RetentionPolicy('test', '1d', 2, true));
 }
 
-$loop = React\EventLoop\Factory::create();
 
-$dnsResolverFactory = new React\Dns\Resolver\Factory();
-$resolver = $dnsResolverFactory->createCached($conf->get('mqtt.nameserver'), $loop);
+$handler = function(Database $influx_database) use(&$handler, $conf)
+{
+    $loop = React\EventLoop\Factory::create();
+    $dnsResolverFactory = new React\Dns\Resolver\Factory();
+    $resolver = $dnsResolverFactory->createCached($conf->get('mqtt.nameserver'), $loop);
 
-$connector = new Connector($loop, $resolver, new Version4());
+    $connector = new Connector($loop, $resolver, new Version4());
 
-$options = new ConnectionOptions([
-    'username' => $conf->get('mqtt.broker.user'),
-    'password' => $conf->get('mqtt.broker.password')
-]);
+    $options = new ConnectionOptions([
+        'username' => $conf->get('mqtt.broker.user'),
+        'password' => $conf->get('mqtt.broker.password')
+    ]);
 
+    $connector
+        ->create($conf->get('mqtt.broker.host'), $conf->get('mqtt.broker.port'), $options)
+        ->then(function (\React\Stream\Stream $stream) use (&$handler, $connector, $conf, $influx_database) {
 
-$points = [];
+            static $pings = 0, $points = [];
 
-$connector
-    ->create($conf->get('mqtt.broker.host'), $conf->get('mqtt.broker.port'), $options)
-    ->then(function (\React\Stream\Stream $stream) use ($connector, $conf, &$points) {
+            $connector->getLoop()->addPeriodicTimer(3, function () use (&$handler, $influx_database, $connector, $stream, &$pings) { // add ping 3s to reconnect
+                if ($pings++ > 3) {
+                    // should reconnect till 3 pings without answer
+                    $connector->disconnect($stream);
 
-        $subscribe_config = (array)$conf->get('subscribe');
-        foreach ($subscribe_config as $data) {
-            $connector->subscribe($stream, $data['topic'], $data['qos'])->then(function (\React\Stream\Stream $stream) use ($connector, $data, &$points) {
-                $stream->on('PUBLISH', function (Publish $message) use ($data, &$points) {
+                    // create new loop
+                    $handler($influx_database);
+                } else {
+                    $connector->ping($stream);
+                }
+                //echo memory_get_usage(true)."\n";
+            });
 
-                    $topics_config = (array)$data['topics'];
+            $stream->on('PING_RESPONSE', function ($message) use(&$pings) {
+                $pings = 0;
+            });
 
-                    $reader = new PublishReader($message);
+            $subscribe_config = (array)$conf->get('subscribe');
+            foreach ($subscribe_config as $data) {
+                $connector->subscribe($stream, $data['topic'], $data['qos'])->then(function (\React\Stream\Stream $stream) use ($connector, $data, &$points) {
+                    $stream->on('PUBLISH', function (Publish $message) use ($data, &$points) {
 
-                    foreach ($topics_config as $topic) {
+                        $topics_config = (array)$data['topics'];
 
-                        if (preg_match($topic['pattern'], $reader->getMeasurement())) {
-                            $measurement = trim(preg_replace($topic['pattern'], $topic['measurement'], $reader->getMeasurement()));
+                        $reader = new PublishReader($message);
 
-                            if ($measurement) {
-                                $value = $reader->getValue();
+                        foreach ($topics_config as $topic) {
 
-                                if ($topic['type'] == 'int') {
-                                    $value = (int)$value;
+                            if (preg_match($topic['pattern'], $reader->getMeasurement())) {
+                                $measurement = trim(preg_replace($topic['pattern'], $topic['measurement'], $reader->getMeasurement()));
+
+                                if ($measurement) {
+                                    $value = $reader->getValue();
+
+                                    if ($topic['type'] == 'int') {
+                                        $value = (int)$value;
+                                    }
+
+                                    $points[] =
+                                        new Point(
+                                            $measurement,
+                                            $value,
+                                            (array)$topic['tags'],
+                                            [],
+                                            $reader->getTimestamp()
+                                        );
                                 }
-
-                                $points[] =
-                                    new Point(
-                                        $measurement,
-                                        $value,
-                                        (array)$topic['tags'],
-                                        [],
-                                        $reader->getTimestamp()
-                                    );
                             }
                         }
-                    }
+                    });
                 });
+            }
+
+            $connector->getLoop()->addPeriodicTimer(1, function () use ($influx_database, &$points) {
+
+                if (count($points) > 0) {
+                    $copy_points = $points;
+                    $points = [];
+                    if ($influx_database->writePoints($copy_points, Database::PRECISION_SECONDS)) {
+                        echo '+' . count($copy_points) . "\n";
+                    }
+                }
             });
-        }
-    });
+        });
 
+    $loop->run();
+};
 
-$loop->addPeriodicTimer(1, function () use ($influx_database, &$points) {
+$handler($influx_database);
 
-    if (count($points) > 0) {
-        $copy_points = $points;
-        $points = [];
-        if ($influx_database->writePoints($copy_points, Database::PRECISION_SECONDS)) {
-            echo '+' . count($copy_points) . "\n";
-        }
-    }
-});
-$loop->run();
