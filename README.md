@@ -13,3 +13,29 @@ or put config to _config.local.yml_
 `php daemon.phar`
 
 Can use plain daemon.php instead of phar too
+
+Config example:
+
+```
+influxdb:
+  database: test_db
+  server:
+    host: influxdb
+    port: 8086
+    
+mqtt:
+  broker:
+    host: m12.cloudmqtt.com
+    port: 14775
+    user: zxcsec
+    password: xcvdx5xcv
+
+subscribe:
+   - topic: "#"
+     qos: 0
+     topics:
+       - {pattern: "'(.*?\/vq_0)'", measurement: "$1", tags: {}, type: percent}
+       - {pattern: "'(.*?\/rms_0)'", measurement: "$1", tags: {}, type: int}
+       - {pattern: "'(.*?\/trms_0)'", measurement: "$1", tags: {}, type: int}
+       - {pattern: "'(.*?\/wifi-signal)'", measurement: "$1", tags: {}, type: float}
+```
