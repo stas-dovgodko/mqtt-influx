@@ -87,9 +87,16 @@ $handler = function(Database $influx_database) use(&$handler, $conf)
                                 if ($measurement) {
                                     $value = $reader->getValue();
 
-                                    if ($topic['type'] == 'int') {
+                                    if (!array_key_exists('type', $topic)) {
+                                        // not modified (actually string)
+                                    } elseif ($topic['type'] == 'int') {
                                         $value = (int)$value;
+                                    } elseif ($topic['type'] == 'percent') {
+                                        $value = (int)((float)$value * 100);
+                                    } elseif ($topic['type'] == 'float') {
+                                        $value = (float)$value;
                                     }
+
 
                                     $points[] =
                                         new Point(
