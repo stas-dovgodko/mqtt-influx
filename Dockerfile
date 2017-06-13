@@ -42,8 +42,8 @@ RUN pecl install intl
 RUN docker-php-ext-install intl
 RUN docker-php-ext-enable intl
 
-RUN pecl install memcached
-RUN echo extension=memcached.so >> /usr/local/etc/php/conf.d/memcached.ini
+#RUN pecl install memcached
+#RUN echo extension=memcached.so >> /usr/local/etc/php/conf.d/memcached.ini
 
 RUN touch /usr/local/etc/php/conf.d/999-custom.ini
 RUN echo date.timezone="Europe/Kiev" >> /usr/local/etc/php/conf.d/999-custom.ini
