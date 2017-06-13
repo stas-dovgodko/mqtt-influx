@@ -118,8 +118,18 @@ $handler = function(Database $influx_database) use(&$handler, $conf)
                 if (count($points) > 0) {
                     $copy_points = $points;
                     $points = [];
-                    if ($influx_database->writePoints($copy_points, Database::PRECISION_SECONDS)) {
-                        echo '+' . count($copy_points) . "\n";
+
+                    $tries = 3;
+                    while(--$tries > 0) {
+                        try {
+                            if ($influx_database->writePoints($copy_points, Database::PRECISION_SECONDS)) {
+                                echo '+' . count($copy_points) . "\n";
+                            }
+                            break;
+                        } catch (\Exception $e) {
+                            echo $e->getMessage()."\n";
+                            continue;
+                        }
                     }
                 }
             });
